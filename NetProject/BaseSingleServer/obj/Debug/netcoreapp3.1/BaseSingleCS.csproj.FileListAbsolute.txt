@@ -1,0 +1,13 @@
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\bin\Debug\netcoreapp3.1\BaseSingleCS.exe
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\bin\Debug\netcoreapp3.1\BaseSingleCS.deps.json
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\bin\Debug\netcoreapp3.1\BaseSingleCS.runtimeconfig.json
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\bin\Debug\netcoreapp3.1\BaseSingleCS.runtimeconfig.dev.json
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\bin\Debug\netcoreapp3.1\BaseSingleCS.dll
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\bin\Debug\netcoreapp3.1\BaseSingleCS.pdb
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\obj\Debug\netcoreapp3.1\BaseSingleCS.csproj.AssemblyReference.cache
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\obj\Debug\netcoreapp3.1\BaseSingleCS.AssemblyInfoInputs.cache
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\obj\Debug\netcoreapp3.1\BaseSingleCS.AssemblyInfo.cs
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\obj\Debug\netcoreapp3.1\BaseSingleCS.csproj.CoreCompileInputs.cache
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\obj\Debug\netcoreapp3.1\BaseSingleCS.dll
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\obj\Debug\netcoreapp3.1\BaseSingleCS.pdb
+F:\_simsy\_github\MyPracticeBook\HttpClient\BaseSingleCS\obj\Debug\netcoreapp3.1\BaseSingleCS.genruntimeconfig.cache
