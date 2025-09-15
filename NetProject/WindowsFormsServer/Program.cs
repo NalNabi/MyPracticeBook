@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -32,6 +33,8 @@ namespace WindowsFormsServer
             Init,
             Update
         }
+
+        private static int _max_buf_recv = 255;
 
         public State _state { get; set; } = State.Default;
 
@@ -126,7 +129,7 @@ namespace WindowsFormsServer
                         }
                         catch (SocketException _ex)
                         {
-                            ;
+                            _app.Chat("Socket error : " + _ex.Message);
                         }
                         finally
                         {
@@ -180,21 +183,82 @@ namespace WindowsFormsServer
             try
             {
                 int _recv = 0;
-                byte[] _buffer = new byte[255];
+                byte[] _buffer = new byte[Math.Min(_accpet.ReceiveBufferSize, _max_buf_recv)];
                 while (_state == State.Update)
                 {
                     Array.Clear(_buffer, 0, _buffer.Length);
 
                     _recv = _accpet.Receive(_buffer, 0, _buffer.Length, 0);
 
-                    if (_recv <= 0)
+                    int _read_index = 0;
+                    int _left_data = _recv;
+                    while (_left_data > 0)
                     {
-                        _app.Chat("Socket recv error");
+                        int _sz_szdata = sizeof(int);
+                        if (_recv - _sz_szdata <= 0) // sizeof(int) : the number of data size
+                        {
+                            _app.Chat("Socket recv error");
 
-                        break;
+                            break;
+                        }
+
+                        // get data size
+                        byte[] _szbuf = new byte[_sz_szdata];
+                        Array.Copy(_buffer, _szbuf, _sz_szdata);
+
+                        _read_index += _sz_szdata;
+                        _left_data -= _sz_szdata;
+
+                        int _szdata = BitConverter.ToInt32(_szbuf, 0);
+
+                        _app.Chat("[Framework] Recv start data size : " + _szdata);
+
+                        MemoryStream _memory = new MemoryStream();
+                        if (_left_data >= _szdata)
+                        {
+                            // complete data
+                            _memory.Write(_buffer, _read_index, _szdata);
+
+                            _read_index += _szdata;
+                            _left_data -= _szdata;
+
+                            _app.Chat("[Framework] Recv complete 01");
+                            _app.Message(Encoding.Default.GetString(_memory.ToArray()));
+
+                            _memory.Close();
+
+
+                            continue ;
+                        }
+
+                        // get first data
+                        _memory.Write(_buffer, _read_index, _left_data);
+
+                        _szdata -= _left_data;
+                        _left_data = 0;
+
+                        // get second data
+                        while (_szdata > 0)
+                        {
+                            Array.Clear(_buffer, 0, _recv);
+
+                            int _szrecv = Math.Min(_buffer.Length, _szdata);
+
+                            _recv = _accpet.Receive(_buffer, 0, _szrecv, 0);
+
+                            _memory.Write(_buffer, 0, _recv);
+
+                            _szdata -= _recv;
+
+                            _app.Chat("[Framework] Recv sec data : " + _recv + " / left : " + _szdata);
+                        }
+
+                        // complete data
+                        _app.Chat("[Framework] Recv complete 02");
+                        _app.Message(Encoding.Default.GetString(_memory.ToArray()));
+
+                        _memory.Close();
                     }
-
-                    _app.Chat("[Framework] Recv : " + Encoding.Default.GetString(_buffer));         
                 }
             }
             catch (SocketException _ex)

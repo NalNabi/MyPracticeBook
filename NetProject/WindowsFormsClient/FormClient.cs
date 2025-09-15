@@ -12,8 +12,9 @@ namespace WindowsFormsClient
 {
     public partial class FormClient : Form
     {
-        static string Global_Server_IP = "127.0.0.1";
-        static int Global_Server_Port = 2025;
+        private static int _max_list_chat = 20;
+        private static string Global_Server_IP = "127.0.0.1";
+        private static int Global_Server_Port = 2025;
 
         private static readonly object _lock = new object();
 
@@ -80,9 +81,9 @@ namespace WindowsFormsClient
             {
                 listBoxChat.Items.Add(strData);
 
-                while (listBoxChat.Items.Count > 10)
+                while (listBoxChat.Items.Count > _max_list_chat)
                 {
-                    listBoxChat.Items.RemoveAt(10);
+                    listBoxChat.Items.RemoveAt(0);
                 }
             }
 
@@ -112,6 +113,16 @@ namespace WindowsFormsClient
             }
         }
 
+        private void MessageSend()
+        {
+            if (richTextBoxMessage.Text.Length > 0)
+            {
+                _framework.Write(richTextBoxMessage.Text);
+
+                richTextBoxMessage.Clear();
+            }
+        }
+
         private void buttonChat_Click(object sender, EventArgs e)
         {
             ChatSend();
@@ -130,6 +141,11 @@ namespace WindowsFormsClient
             }
 
             return ;
+        }
+
+        private void buttonMessage_Click(object sender, EventArgs e)
+        {
+            MessageSend();
         }
     }
 }

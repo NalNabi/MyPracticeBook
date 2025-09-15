@@ -31,13 +31,14 @@ namespace WindowsFormsServer
         {
             this.buttonListen = new System.Windows.Forms.Button();
             this.listBoxReceive = new System.Windows.Forms.ListBox();
+            this.richTextBoxMessage = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // buttonListen
             // 
-            this.buttonListen.Location = new System.Drawing.Point(48, 43);
+            this.buttonListen.Location = new System.Drawing.Point(858, 35);
             this.buttonListen.Name = "buttonListen";
-            this.buttonListen.Size = new System.Drawing.Size(352, 65);
+            this.buttonListen.Size = new System.Drawing.Size(352, 71);
             this.buttonListen.TabIndex = 0;
             this.buttonListen.Text = "Listen";
             this.buttonListen.UseVisualStyleBackColor = true;
@@ -48,16 +49,25 @@ namespace WindowsFormsServer
             this.listBoxReceive.FormattingEnabled = true;
             this.listBoxReceive.HorizontalScrollbar = true;
             this.listBoxReceive.ItemHeight = 18;
-            this.listBoxReceive.Location = new System.Drawing.Point(48, 139);
+            this.listBoxReceive.Location = new System.Drawing.Point(858, 131);
             this.listBoxReceive.Name = "listBoxReceive";
-            this.listBoxReceive.Size = new System.Drawing.Size(352, 310);
+            this.listBoxReceive.Size = new System.Drawing.Size(352, 1030);
             this.listBoxReceive.TabIndex = 1;
+            // 
+            // richTextBoxMessage
+            // 
+            this.richTextBoxMessage.Location = new System.Drawing.Point(48, 35);
+            this.richTextBoxMessage.Name = "richTextBoxMessage";
+            this.richTextBoxMessage.Size = new System.Drawing.Size(777, 1126);
+            this.richTextBoxMessage.TabIndex = 2;
+            this.richTextBoxMessage.Text = "";
             // 
             // FormServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(448, 504);
+            this.ClientSize = new System.Drawing.Size(1239, 1202);
+            this.Controls.Add(this.richTextBoxMessage);
             this.Controls.Add(this.listBoxReceive);
             this.Controls.Add(this.buttonListen);
             this.Name = "FormServer";
@@ -70,6 +80,7 @@ namespace WindowsFormsServer
 
         private System.Windows.Forms.Button buttonListen;
         private System.Windows.Forms.ListBox listBoxReceive;
+        private System.Windows.Forms.RichTextBox richTextBoxMessage;
     }
 }
 

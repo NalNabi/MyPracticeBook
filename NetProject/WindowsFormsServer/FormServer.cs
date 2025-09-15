@@ -20,6 +20,7 @@ namespace WindowsFormsServer
             Update
         }
 
+        private static int _max_list_chat = 20;
         static readonly object _lock = new object();
 
         private State _state = State.Default;
@@ -34,7 +35,7 @@ namespace WindowsFormsServer
 
         public bool Init()
         {
-            switch(_state)
+            switch (_state)
             {
                 case State.Default:
                     {
@@ -147,7 +148,7 @@ namespace WindowsFormsServer
             {
                 listBoxReceive.Items.Add(strData);
 
-                while (listBoxReceive.Items.Count > 10)
+                while (listBoxReceive.Items.Count > _max_list_chat)
                 {
                     listBoxReceive.Items.RemoveAt(0);
                 }
@@ -160,7 +161,7 @@ namespace WindowsFormsServer
                     listBoxReceive.Invoke(new MethodInvoker(delegate
                     {
                         ListBoxAdd(strChat);
-                       
+
                     }));
                 }
                 else
@@ -170,6 +171,28 @@ namespace WindowsFormsServer
             }
         }
 
-        
+        public void Message(string strMessage)
+        {
+            // inline local func
+            void RichTextBoxAdd(string strData)
+            {
+                richTextBoxMessage.Text = strData;
+            }
+
+            lock (_lock)
+            {
+                if (richTextBoxMessage.InvokeRequired)
+                {
+                    richTextBoxMessage.Invoke(new MethodInvoker(delegate
+                    {
+                        RichTextBoxAdd(strMessage);
+                    }));
+                }
+                else
+                {
+                    RichTextBoxAdd(strMessage);
+                }
+            }
+        }
     }
 }

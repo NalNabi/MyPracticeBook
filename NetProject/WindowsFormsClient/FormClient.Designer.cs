@@ -33,13 +33,15 @@ namespace WindowsFormsClient
             this.listBoxChat = new System.Windows.Forms.ListBox();
             this.textChat = new System.Windows.Forms.TextBox();
             this.buttonChat = new System.Windows.Forms.Button();
+            this.richTextBoxMessage = new System.Windows.Forms.RichTextBox();
+            this.buttonMessage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonConnect
             // 
-            this.buttonConnect.Location = new System.Drawing.Point(38, 43);
+            this.buttonConnect.Location = new System.Drawing.Point(901, 36);
             this.buttonConnect.Name = "buttonConnect";
-            this.buttonConnect.Size = new System.Drawing.Size(182, 58);
+            this.buttonConnect.Size = new System.Drawing.Size(366, 70);
             this.buttonConnect.TabIndex = 0;
             this.buttonConnect.Text = "Connect";
             this.buttonConnect.UseVisualStyleBackColor = true;
@@ -50,14 +52,14 @@ namespace WindowsFormsClient
             this.listBoxChat.FormattingEnabled = true;
             this.listBoxChat.HorizontalScrollbar = true;
             this.listBoxChat.ItemHeight = 18;
-            this.listBoxChat.Location = new System.Drawing.Point(38, 123);
+            this.listBoxChat.Location = new System.Drawing.Point(901, 127);
             this.listBoxChat.Name = "listBoxChat";
-            this.listBoxChat.Size = new System.Drawing.Size(366, 310);
+            this.listBoxChat.Size = new System.Drawing.Size(366, 904);
             this.listBoxChat.TabIndex = 1;
             // 
             // textChat
             // 
-            this.textChat.Location = new System.Drawing.Point(38, 458);
+            this.textChat.Location = new System.Drawing.Point(901, 1048);
             this.textChat.Name = "textChat";
             this.textChat.Size = new System.Drawing.Size(224, 28);
             this.textChat.TabIndex = 2;
@@ -65,19 +67,39 @@ namespace WindowsFormsClient
             // 
             // buttonChat
             // 
-            this.buttonChat.Location = new System.Drawing.Point(281, 448);
+            this.buttonChat.Location = new System.Drawing.Point(1154, 1048);
             this.buttonChat.Name = "buttonChat";
-            this.buttonChat.Size = new System.Drawing.Size(123, 44);
+            this.buttonChat.Size = new System.Drawing.Size(113, 28);
             this.buttonChat.TabIndex = 3;
-            this.buttonChat.Text = "Enter";
+            this.buttonChat.Text = "Send Chat";
             this.buttonChat.UseVisualStyleBackColor = true;
             this.buttonChat.Click += new System.EventHandler(this.buttonChat_Click);
+            // 
+            // richTextBoxMessage
+            // 
+            this.richTextBoxMessage.Location = new System.Drawing.Point(39, 36);
+            this.richTextBoxMessage.Name = "richTextBoxMessage";
+            this.richTextBoxMessage.Size = new System.Drawing.Size(819, 1141);
+            this.richTextBoxMessage.TabIndex = 4;
+            this.richTextBoxMessage.Text = "";
+            // 
+            // buttonMessage
+            // 
+            this.buttonMessage.Location = new System.Drawing.Point(901, 1100);
+            this.buttonMessage.Name = "buttonMessage";
+            this.buttonMessage.Size = new System.Drawing.Size(366, 77);
+            this.buttonMessage.TabIndex = 5;
+            this.buttonMessage.Text = "Send Message";
+            this.buttonMessage.UseVisualStyleBackColor = true;
+            this.buttonMessage.Click += new System.EventHandler(this.buttonMessage_Click);
             // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 534);
+            this.ClientSize = new System.Drawing.Size(1307, 1212);
+            this.Controls.Add(this.buttonMessage);
+            this.Controls.Add(this.richTextBoxMessage);
             this.Controls.Add(this.buttonChat);
             this.Controls.Add(this.textChat);
             this.Controls.Add(this.listBoxChat);
@@ -95,6 +117,8 @@ namespace WindowsFormsClient
         private System.Windows.Forms.ListBox listBoxChat;
         private System.Windows.Forms.TextBox textChat;
         private System.Windows.Forms.Button buttonChat;
+        private System.Windows.Forms.RichTextBox richTextBoxMessage;
+        private System.Windows.Forms.Button buttonMessage;
     }
 }
 

@@ -199,7 +199,10 @@ namespace WindowsFormsClient
         {
             lock(_lock_send)
             {
-                _buffer = Encoding.Default.GetBytes(strChat);
+                byte[] _data = Encoding.Default.GetBytes(strChat);
+                _buffer = new byte[sizeof(int) + _data.Length];
+                Array.Copy(BitConverter.GetBytes(_data.Length), _buffer, sizeof(int));
+                Array.Copy(_data, 0, _buffer, sizeof(int), _data.Length);
             }
         }
 
