@@ -1,6 +1,0 @@
-F:\_simsy\_github\MyPracticeBook\HttpClient\HttpClient\bin\Debug\HttpClient.exe.config
-F:\_simsy\_github\MyPracticeBook\HttpClient\HttpClient\bin\Debug\HttpClient.exe
-F:\_simsy\_github\MyPracticeBook\HttpClient\HttpClient\bin\Debug\HttpClient.pdb
-F:\_simsy\_github\MyPracticeBook\HttpClient\HttpClient\obj\Debug\NetProject.csproj.CoreCompileInputs.cache
-F:\_simsy\_github\MyPracticeBook\HttpClient\HttpClient\obj\Debug\HttpClient.exe
-F:\_simsy\_github\MyPracticeBook\HttpClient\HttpClient\obj\Debug\HttpClient.pdb
