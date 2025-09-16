@@ -19,7 +19,7 @@ namespace WindowsFormsDelegateServer
             private set;
         } = null;
 
-        public string m_ID
+        public string m_id
         {
             get;
             private set;
@@ -34,7 +34,7 @@ namespace WindowsFormsDelegateServer
         public Client(Socket r_socket)
         {
             m_socket = r_socket;
-            m_ID = Guid.NewGuid().ToString();
+            m_id = Guid.NewGuid().ToString();
             m_ep = (IPEndPoint)m_socket.RemoteEndPoint;
             m_socket.BeginReceive(new byte[] { 0 }, 0, 0, 0, ReceiveCallback, null);
         }

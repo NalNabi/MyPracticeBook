@@ -50,6 +50,7 @@ namespace WindowsFormsDelegateServer
             this.listViewClient.TabIndex = 0;
             this.listViewClient.UseCompatibleStateImageBehavior = false;
             this.listViewClient.View = System.Windows.Forms.View.Details;
+            this.listViewClient.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewClient_MouseDoubleClick);
             // 
             // ColumnEP
             // 
